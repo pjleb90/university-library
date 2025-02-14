@@ -15,7 +15,10 @@ export async function GET() {
 
   // Allow requests from any origin (for testing)
   const headers = new Headers();
-  headers.set("Access-Control-Allow-Origin", "*");
+  headers.set(
+    "Access-Control-Allow-Origin",
+    "https://university-library-seven-tau.vercel.app/"
+  );
   headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
   headers.set("Access-Control-Allow-Headers", "Content-Type");
 
