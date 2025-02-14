@@ -11,5 +11,13 @@ const {
 const imagekit = new ImageKit({ publicKey, privateKey, urlEndpoint });
 
 export async function GET() {
-  return NextResponse.json(imagekit.getAuthenticationParameters());
+  const authParams = imagekit.getAuthenticationParameters();
+
+  // Allow requests from any origin (for testing)
+  const headers = new Headers();
+  headers.set("Access-Control-Allow-Origin", "*");
+  headers.set("Access-Control-Allow-Methods", "GET, OPTIONS");
+  headers.set("Access-Control-Allow-Headers", "Content-Type");
+
+  return NextResponse.json(authParams, { headers });
 }
