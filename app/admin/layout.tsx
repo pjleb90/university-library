@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
 
 import "@/styles/admin.css";
 import Sidebar from "@/components/admin/Sidebar";
@@ -8,6 +9,10 @@ import Header from "@/components/admin/Header";
 import { db } from "@/database/drizzle";
 import { users } from "@/database/schema";
 import { eq } from "drizzle-orm";
+
+export const metadata: Metadata = {
+  title: "BookWise - Admin",
+};
 
 const Layout = async ({ children }: { children: ReactNode }) => {
   const session = await auth();
